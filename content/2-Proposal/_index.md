@@ -5,111 +5,127 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
-
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+# Serverless Log Management & Analytics Pipeline
+## Unified AWS Serverless Solution for Scalable Log Processing
 
 ### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+
+The Serverless Log Management & Analytics Pipeline is designed to provide centralized log ingestion and analysis for diverse applications, running on AWS. It supports high‑volume log streams from multiple sources, with scalability to handle millions of events per day. The pipeline leverages AWS Serverless services to deliver real‑time classification, optimized long‑term storage, and cost‑efficient analytics. Access control is managed through AWS Identity and Access Management (IAM), ensuring secure usage across designated teams.
+
+SERVERLESS LOG MANAGEMENT & ANALYTICS PIPELINE
+1.Executive Summary
+Dự án tập trung xây dựng một hệ thống quản lý và phân tích nhật ký (log) tập trung, sử dụng hoàn toàn kiến trúc Serverless trên nền tảng điện toán đám mây AWS. Hệ thống được thiết kế để giải quyết bài toán tiếp nhận dữ liệu log khổng lồ từ nhiều ứng dụng khác nhau, xử lý phân loại thời gian thực và lưu trữ tối ưu cho mục đích phân tích dài hạn.
+2.Problem Statement
+What’s the Problem
+Log ứng dụng nằm rải rác trên nhiều máy chủ, gây khó khăn cho việc giám sát tập trung.
+*The Solution
+Hệ thống triển khai sử dụng cloudwatch agent gửi log lên vào cloudwatch , từ cloud watch sẽ gửi vào đường ống dữ liệu (SQS) tiếp nhận ổ định thông qua lambda , từ sqs gọi aws lambda để phân loại dữ liệu theo thời gian thực: lưu trữ metadata tại DynamoDB (Hot Data) để truy vấn nhanh và đẩy payload thô lên Amazon S3 (Cold Data) phục vụ phân tích lâu dài bằng Amazon Athena và Aws glue,nếu có lỗi sẽ báo qua SNS. Đồng thời triển khai một app đăng kí tài khoản sử dụng cognito và iam đăng kí người dùng vào sns. Với amazon athena thì triển khai một app sử dụng ec2 để đăng nhập và truy vấn dữ liệu log
+3.Solution Architecture
 
 ### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+#### What’s the Problem?
 
-### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+Application logs are scattered across multiple servers, making centralized monitoring and analysis difficult. This fragmentation leads to inefficiencies in troubleshooting, delayed insights, and challenges in maintaining system reliability.
 
-### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+#### The Solution
+
+The pipeline leverages AWS CloudWatch Agent to collect logs and forward them to CloudWatch, which then streams data into Amazon SQS for stable ingestion. AWS Lambda processes messages from SQS in real time, classifying logs and storing metadata in DynamoDB (Hot Data) for fast queries, while raw payloads are archived in Amazon S3 (Cold Data) for long‑term analytics using Amazon Athena and AWS Glue. Error notifications are sent via Amazon SNS. User access is managed through Amazon Cognito and IAM, enabling secure registration and subscription to SNS alerts. For advanced queries, an EC2‑based application provides controlled access to Athena for log analysis.
+
+#### Benefits and Return on Investment
+
+This solution establishes a unified, serverless log management system that reduces operational overhead and improves visibility across distributed applications. Real‑time classification accelerates troubleshooting, while cost‑efficient storage in S3 supports scalable analytics. By automating ingestion and alerting, teams save significant time compared to manual log collection. Monthly costs remain minimal under AWS’s serverless pricing model, with long‑term ROI achieved through improved reliability, reduced downtime, and streamlined maintenance.
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+The pipeline employs a fully serverless AWS architecture to centralize log ingestion, processing, and analytics across distributed applications. Logs are collected via CloudWatch Agents, streamed through Amazon SQS for reliable delivery, and processed by AWS Lambda for real‑time classification. Metadata is stored in DynamoDB for fast queries, while raw payloads are archived in Amazon S3 for long‑term analysis with Athena and Glue. Notifications are handled by SNS and CloudWatch Alerts, ensuring timely responses to anomalies. User registration and access control are managed through Cognito and IAM, with ECS applications integrated into the system for secure usage. The architecture is detailed below:
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+![Log Management Platform Architecture](/images/2-Proposal/platform_architecture_en.jpeg)
 
 ### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+- **Amazon Cognito**: Manages user registration and authentication.
+- **AWS IAM**: Provides secure access keys and role‑based permissions.
+- **Amazon ECS**: Registers applications and associates them with user accounts.
+- **Amazon DynamoDB**: Stores user metadata and registration details.
+- **Amazon CloudWatch**: Centralizes log collection and monitoring.
+- **CloudWatch Agent**: Collects logs from EC2/ECS applications.
+- **Amazon SQS**: Ensures reliable, asynchronous log ingestion.
+- **AWS Lambda**: Processes and classifies logs in real time.
+- **Amazon S3**: Stores raw logs for long‑term analysis.
+- **AWS Glue & Glue Catalog**: Organizes and transforms log data.
+- **Amazon Athena**: Enables SQL‑based queries on historical logs.
+- **Amazon SNS**: Sends alerts and notifications for anomalies.
+- **CloudWatch Alerts**: Detects unusual patterns and triggers responses.
 
 ### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+- **Identity & Access Layer**: Cognito handles user registration, IAM enforces permissions, and ECS/DynamoDB store user and app metadata.
+- **Monitoring & Logging Layer**: CloudWatch Agent collects logs from applications, which are centralized in CloudWatch.
+- **ETL & Analytics Layer**: Lambda processes logs, Glue organizes data, Athena enables queries, and S3 provides scalable storage.
+- **Notification & Response Layer**: SQS queues events, SNS distributes alerts, and CloudWatch triggers anomaly detection.
 
 ### 4. Technical Implementation
 **Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+- **Architecture Design**: Define serverless log pipeline and AWS service integration (Month 0).
+- **Cost Estimation & Optimization**: Use AWS Pricing Calculator to forecast expenses and adjust design (Month 1).
+- **System Setup & Integration**: Configure CloudWatch Agents, Lambda functions, and Glue jobs (Month 2).
+- **Testing & Deployment**: Validate ingestion, classification, and alerting workflows; deploy to production (Month 3).
 
 **Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+- **Log Sources**: Applications running on EC2/ECS with CloudWatch Agents.
+- **Data Pipeline**: CloudWatch → SQS → Lambda → DynamoDB/S3.
+- **Analytics**: Athena queries on S3 data, Glue ETL for structured analysis.
+- **Access Control**: Cognito for user authentication, IAM for permissions.
+- **Notifications**: SNS and CloudWatch Alerts for anomaly detection.
 
 ### 5. Timeline & Milestones
 **Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+- **Pre‑Implementation (Month 0)**: 1 month for planning and reviewing existing log collection methods.
+- **Implementation (Months 1‑3)**: 3 months.
+  - **Month 1**: Study AWS services and configure CloudWatch Agents for applications.
+    - **Month 2**: Design and adjust the pipeline architecture, integrate Lambda, SQS, DynamoDB, and S3.
+    - **Month 3**: Implement, test, and launch the full system with Glue jobs and Athena queries.
+  - **Post‑Launch**: Up to 1 year for optimization, monitoring, and scaling log ingestion.
 
 ### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
+You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).
 
 ### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
+- **AWS Services**:
+  - AWS Lambda: $0.00/month (1,000 requests, 512 MB).
+    - Amazon S3 Standard: $0.20/month (10 GB logs, 3,000 requests, 2 GB scanned).
+    - Data Transfer: $0.03/month (2 GB inbound, 2 GB outbound).
+    - Amazon DynamoDB: $0.10/month (metadata queries).
+    - Amazon SQS: $0.05/month (50,000 messages).
+    - Amazon SNS: $0.02/month (alerts & notifications).
+    - Amazon CloudWatch: $0.15/month (log ingestion & monitoring).
+    - AWS Glue ETL Jobs: $0.05/month (2 DPUs).
     - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
-
-Total: $0.7/month, $8.40/12 months
-
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+    - Amazon Athena: $0.10/month (SQL queries on S3).
+  
+**Total**: ~$0.77/month, ~$9.24/12 months.
+No hardware costs are required since the system leverages AWS infrastructure.
 
 ### 7. Risk Assessment
 #### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
+- **Log Volume Spikes**: High impact, medium probability.
+- **Service Misconfiguration**: Medium impact, medium probability.
+- **Cost Overruns**: Medium impact, low probability.
+- **Access Control Breach**: High impact, low probability.
 
 #### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
+- **Log Spikes**: Use SQS buffering and Lambda auto‑scaling.
+- **Misconfiguration**: Manage infrastructure with CloudFormation/CDK templates.
+- **Cost**: Enable AWS budget alerts and optimize Glue/Athena queries.
+- **Access Control**: Enforce Cognito + IAM policies, enable MFA for users.
 
 #### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+- **Pipeline Failure**: Temporarily store logs locally on EC2/ECS instances.
+- **Cost Issues**: Roll back configurations using CloudFormation templates.
+- **Access Breach**: Disable IAM keys, trigger SNS alerts, and restore permissions.
 
 ### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-#### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+#### Technical Improvements
+The pipeline enables real‑time log ingestion and analytics, replacing fragmented manual collection across multiple servers. It provides centralized visibility, faster troubleshooting through metadata queries in DynamoDB, and scalable long‑term storage in S3. SQL‑based queries via Athena streamline analysis, while automated alerts through SNS and CloudWatch reduce downtime.
+
+#### Long‑Term Value
+The system establishes a one‑year foundation of log data for operational research and performance optimization. It is reusable for future projects, serving as a model for serverless data pipelines. By minimizing manual monitoring and leveraging AWS’s pay‑as‑you‑go model, the solution ensures cost efficiency, scalability, and reliability for enterprise‑level applications.

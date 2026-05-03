@@ -1,59 +1,33 @@
 ---
-title: "Worklog Tuần 7"
+title: "Week 7 Worklog"
 date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 7:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tích hợp các thành phần riêng lẻ vào project nhóm  
+* Triển khai và kiểm thử hệ thống hoàn chỉnh trên AWS  
+* Nâng cao hiểu biết về kiến trúc tổng thể của hệ thống  
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Công việc thực hiện trong tuần:
+| Day | Task                                                                                         | Start Date | Completion Date | Reference Material |
+| --- | -------------------------------------------------------------------------------------------- | ---------- | --------------- | ------------------ |
+| 2   | - Tích hợp module đăng ký ứng dụng vào project nhóm                                           | 2026-02-20 | 2026-02-20      |                    |
+| 5   | - Chạy demo project nhóm <br> - Quan sát hoạt động hệ thống và tìm hiểu luồng xử lý tổng thể | 2026-02-23 | 2026-02-23      |                    |
 
+### Kết quả đạt được:
 
-### Kết quả đạt được tuần 7:
+* Tích hợp thành công chức năng đăng ký ứng dụng vào project nhóm.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Tái cấu trúc cấu hình Terraform bằng cách tách thành nhiều file theo từng dịch vụ và chức năng, giúp tăng tính rõ ràng và dễ bảo trì.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Triển khai và vận hành hệ thống trên AWS, quan sát sự tương tác giữa các dịch vụ như ECS, ECR, Cognito, DynamoDB và CloudWatch trong môi trường thực tế.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Phát hiện lỗi hệ thống không tự động tạo SNS subscription để gửi email sau khi người dùng đăng ký.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Hiểu rõ hơn về kiến trúc tổng thể và luồng hoạt động của hệ thống thông qua quá trình demo và kiểm thử.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Nâng cao khả năng theo dõi toàn bộ vòng đời của một ứng dụng cloud, từ phát triển, triển khai đến giám sát.

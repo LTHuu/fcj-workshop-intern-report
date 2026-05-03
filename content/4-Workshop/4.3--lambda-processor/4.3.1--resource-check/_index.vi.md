@@ -1,0 +1,38 @@
+---
+title: "Kiểm tra tài nguyên"
+date: 2026-05-02
+weight: 1
+chapter: false
+pre: "<b> 4.3.1 </b>"
+---
+
+## 4.3.1 Kiểm tra tài nguyên
+
+### Mục tiêu
+
+Trước khi tiến hành kiểm thử, cần đảm bảo tất cả các tài nguyên đã được tạo và cấu hình chính xác.
+
+### Kiểm tra DynamoDB
+
+Kiểm tra hệ thống cho thấy đã tạo thành công 3 bảng:
+- fcaj-v2-AppClients  
+- fcaj-v2-AppLogs  
+- fcaj-v2-NotiTTL  
+
+![DynamoDB tables](/images/4-Workshop/4.3--lambda-processor/4.3.1--resource-check/dynamodb.png)
+
+### Kiểm tra SQS
+
+Kiểm tra cho thấy queue `fcaj-v2-log-queue` đã được tạo và sẵn sàng sử dụng.
+
+![SQS queue](/images/4-Workshop/4.3--lambda-processor/4.3.1--resource-check/sqs.png)
+
+### Kiểm tra Lambda
+
+Kiểm tra Lambda function đã được deploy và đã kết nối với SQS để nhận message tự động.
+
+![Lambda trigger](/images/4-Workshop/4.3--lambda-processor/4.3.1--resource-check/lambda.png)
+
+### Kết luận
+
+Tất cả các tài nguyên DynamoDB, SQS và Lambda Processor đã được cấu hình đầy đủ và sẵn sàng cho bước kiểm thử tiếp theo.
