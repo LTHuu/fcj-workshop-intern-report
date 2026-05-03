@@ -18,9 +18,7 @@ Verify the components in the log ingestion pipeline from CloudWatch to ensure th
 
 - Lambda Shipper is configured to receive logs from CloudWatch Logs  
  
-![Resource check](/images/4-Workshop/4.4--log-ingestion/4.4.1--resource-check/resource.png) 
-
-Processor, and SQS.*
+![Resource check](/images/4-Workshop/4.4--log-ingestion/4.4.1--resource-check/resource2.png) 
 
 ### Description
 
