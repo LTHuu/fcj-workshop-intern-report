@@ -6,7 +6,7 @@ chapter: false
 pre: "<b> 4.3 </b>"
 ---
 
-## 4.3 Lambda Processor
+## Content
 
 [4.3.1 Check resource](./4.3.1--resource-check/_index.md)  
 [4.3.2 Processor Test](./4.3.2--processor-test/_index.md)  
@@ -17,7 +17,7 @@ In a log monitoring system, real-time data processing plays a crucial role in ea
 
 ### Architecture
 
-SQS → Lambda → (DynamoDB / S3 / SNS)
+![Struct](/images/4-Workshop/4.3--lambda-processor/4.3_struct.png)  
 
 ### Architecture Description
 

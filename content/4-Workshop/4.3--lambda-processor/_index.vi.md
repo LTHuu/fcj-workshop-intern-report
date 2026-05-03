@@ -5,7 +5,7 @@ weight: 3
 chapter: false
 pre: "<b> 4.3 </b>"
 ---
-#4.3. Lambda Processor
+## Nội dung
 
 [4.3.1 Kiểm tra tài nguyên](./4.3.1--resource-check/_index.vi.md)  
 [4.3.2 Processor Test](./4.3.2--processor-test/_index.vi.md)  
@@ -16,7 +16,7 @@ Trong hệ thống giám sát log, việc xử lý dữ liệu theo thời gian 
 
 
 ## Kiến trúc tổng quát
-  SQS -> Lambda -> (DynamoDB / S3 / SNS)
+![Struct](/images/4-Workshop/4.3--lambda-processor/4.3_struct.png)  
 
 ## Mô tả kiến trúc
 

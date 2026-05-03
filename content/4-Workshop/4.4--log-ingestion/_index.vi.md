@@ -6,7 +6,7 @@ chapter: false
 pre: "<b> 4.4 </b>"
 ---
 
-## 4.4 Thu thập log
+## Nội dung
 
 [4.4.1 Kiểm tra tài nguyên](4.4.1--resource-check/_index.vi.md)  
 [4.4.2 Chạy Lambda Shipper](4.4.2--shipper-test/_index.vi.md)  
@@ -19,6 +19,7 @@ Thu thập log từ hệ thống thông qua CloudWatch và đưa vào pipeline x
 ### Kiến trúc  
 
 Trong pipeline ingest, CloudWatch đóng vai trò thu thập log từ hệ thống. Lambda Shipper sẽ tiếp nhận log này và chuyển tiếp đến SQS để tiếp tục quá trình xử lý.
+![Struct](/images/4-Workshop/4.4--log-ingestion/4.4_struct.png)  
 
 ### Mô tả kiến trúc  
 

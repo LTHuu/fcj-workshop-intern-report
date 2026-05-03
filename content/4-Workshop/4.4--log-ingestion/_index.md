@@ -6,7 +6,7 @@ chapter: false
 pre: "<b> 4.4 </b>"
 ---
 
-## 4.4 Log Ingestion
+## Content
 
 [4.4.1 Check resource](4.4.1--resource-check/_index.md)  
 [4.4.2 Test Lambda Shipper](4.4.2--shipper-test/_index.md)  
@@ -19,6 +19,7 @@ Collect logs from the system through CloudWatch and deliver them into the proces
 ### Architecture
 
 In the ingestion pipeline, CloudWatch acts as the log collection layer. Lambda Shipper receives these logs and forwards them to SQS for further processing.
+![Struct](/images/4-Workshop/4.4--log-ingestion/4.4_struct.png)  
 
 ### Architecture Description
 
