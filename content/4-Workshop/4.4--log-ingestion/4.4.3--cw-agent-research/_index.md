@@ -36,14 +36,6 @@ In this system, CloudWatch Agent can be used to:
 - Automatically send logs to CloudWatch without manual intervention  
 - Integrate directly with the ingestion pipeline developed in section 4.4  
 
-### Comparison with Current Ingestion Method
-
-| Criteria | Manual Logs | CloudWatch Agent |
-|----------|------------|------------------|
-| Log generation | Test events | Automatic from system |
-| Automation level | Low | High |
-| Real-world applicability | Limited | Suitable for production |
-
 ### Status
 
 This feature is currently under research and has not yet been fully implemented in the system.

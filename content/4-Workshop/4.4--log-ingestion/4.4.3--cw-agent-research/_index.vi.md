@@ -36,13 +36,9 @@ Trong hệ thống này, CloudWatch Agent có thể được sử dụng để:
 - Tự động gửi log lên CloudWatch mà không cần thao tác thủ công  
 - Kết nối trực tiếp với pipeline ingest đã xây dựng ở phần 4.4  
 
-### So sánh với cách ingest hiện tại
+### Trạng thái
 
-| Tiêu chí | Log thủ công | CloudWatch Agent |
-|----------|-------------|------------------|
-| Cách tạo log | Tạo test event | Tự động từ hệ thống |
-| Tính tự động | Thấp | Cao |
-| Ứng dụng thực tế | Hạn chế | Phù hợp production |
+Tính năng này hiện đang trong giai đoạn nghiên cứu và chưa được triển khai hoàn chỉnh trong hệ thống.
 
 ### Kết luận
 

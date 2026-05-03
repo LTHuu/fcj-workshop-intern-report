@@ -17,9 +17,8 @@ Kiểm tra các thành phần trong luồng ingest log từ CloudWatch nhằm đ
 - SQS đã được kết nối với Lambda Processor  
 
 - Lambda Shipper đã được cấu hình để nhận log từ CloudWatch Logs
-
-![Resource check](/images/4-Workshop/4.4--log-ingestion/4.4.1--resource-check/resource1.png)  
-![Resource check](/images/4-Workshop/4.4--log-ingestion/4.4.1--resource-check/resource2.png)  
+ 
+![Resource check](/images/4-Workshop/4.4--log-ingestion/4.4.1--resource-check/resource.png)  
 
 ### Mô tả
 

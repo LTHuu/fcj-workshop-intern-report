@@ -17,9 +17,8 @@ Verify the components in the log ingestion pipeline from CloudWatch to ensure th
 - SQS is properly connected to the Lambda Processor  
 
 - Lambda Shipper is configured to receive logs from CloudWatch Logs  
-
-![Resource check](/images/4-Workshop/4.4--log-ingestion/4.4.1--resource-check/resource1.png)  
-![Resource check](/images/4-Workshop/4.4--log-ingestion/4.4.1--resource-check/resource2.png) 
+ 
+![Resource check](/images/4-Workshop/4.4--log-ingestion/4.4.1--resource-check/resource.png) 
 
 Processor, and SQS.*
 
