@@ -1,6 +1,6 @@
 ---
 title: "Week 8 Worklog"
-date: 2024-01-01
+date: 2026-27-04
 weight: 1
 chapter: false
 pre: " <b> 1.8. </b> "
@@ -15,8 +15,8 @@ pre: " <b> 1.8. </b> "
 ### Tasks to be carried out this week:
 | Day | Task                                                                                  | Start Date | Completion Date | Reference Material |
 | --- | ------------------------------------------------------------------------------------- | ---------- | --------------- | ------------------ |
-| 2   | - Fix issues identified during demo <br> - Re-test and validate system functionality  | 04/27/2026 | 04/27/2026      |                    |
-| 3   | - Prepare and complete workshop report                                                | 04/28/2026 | 04/28/2026      |                    |
+| 2   | - Fix issues identified during demo <br> - Re-test and validate system functionality  | 27/04/2026 | 27/04/2026      |                    |
+| 3   | - Prepare and complete workshop report                                                | 28/04/2026 | 28/04/2026      |                    |
 
 ### Week 8 Achievements:
 

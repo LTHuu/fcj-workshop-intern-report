@@ -1,6 +1,6 @@
 ---
 title: "Week 7 Worklog"
-date: 2024-01-01
+date: 2026-20-04
 weight: 1
 chapter: false
 pre: " <b> 1.7. </b> "
@@ -15,8 +15,8 @@ pre: " <b> 1.7. </b> "
 ### Tasks to be carried out this week:
 | Day | Task                                                                                         | Start Date | Completion Date | Reference Material |
 | --- | -------------------------------------------------------------------------------------------- | ---------- | --------------- | ------------------ |
-| 2   | - Integrate application registration module into the group project                           | 02/20/2026 | 02/20/2026      |                    |
-| 5   | - Run demo of the group project <br> - Observe system behavior and understand overall flow   | 02/23/2026 | 02/23/2026      |                    |
+| 2   | - Integrate application registration module into the group project                           | 20/4/2026 | 20/04/2026      |                    |
+| 5   | - Run demo of the group project <br> - Observe system behavior and understand overall flow   | 23/04/2026 | 23/04/2026      |                    |
 
 ### Week 7 Achievements:
 

@@ -1,6 +1,6 @@
 ---
 title: "Week 6 Worklog"
-date: 2024-01-01
+date: 2026-13-04
 weight: 1
 chapter: false
 pre: " <b> 1.6. </b> "
@@ -18,8 +18,8 @@ pre: " <b> 1.6. </b> "
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                      | Start Date | Completion Date | Reference Material |
 | --- | --------------------------------------------------------------------------------------------------------- | ---------- | --------------- | ------------------ |
-| 2   | - Continue implementing application registration functionality <br> - Improve backend logic               | 04/13/2026 | 04/14/2026      |                    |
-| 5   | - Research and implement Cognito for user authentication <br> - Integrate Cognito User Pool into system  | 04/16/2026 | 04/16/2026      |                    |
+| 2   | - Continue implementing application registration functionality <br> - Improve backend logic               | 13/04/2026 | 14/04/2026      |                    |
+| 5   | - Research and implement Cognito for user authentication <br> - Integrate Cognito User Pool into system  | 16/04/2026 | 16/04/2026      |                    |
 
 ### Week 6 Achievements:
 

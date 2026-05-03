@@ -1,6 +1,6 @@
 ---
 title: "Week 8 Worklog"
-date: 2024-01-01
+date: 2026-27-04
 weight: 1
 chapter: false
 pre: " <b> 1.8. </b> "
@@ -15,8 +15,8 @@ pre: " <b> 1.8. </b> "
 ### Công việc thực hiện trong tuần:
 | Day | Task                                                                                  | Start Date | Completion Date | Reference Material |
 | --- | ------------------------------------------------------------------------------------- | ---------- | --------------- | ------------------ |
-| 2   | - Sửa các lỗi phát hiện trong quá trình demo <br> - Kiểm tra và xác nhận lại hoạt động của hệ thống | 2026-04-27 | 2026-04-27      |                    |
-| 3   | - Soạn và hoàn thiện báo cáo workshop                                                 | 2026-04-28 | 2026-04-28      |                    |
+| 2   | - Sửa các lỗi phát hiện trong quá trình demo <br> - Kiểm tra và xác nhận lại hoạt động của hệ thống | 27/04/2026 | 27/04/2026      |                    |
+| 3   | - Soạn và hoàn thiện báo cáo workshop                                                 | 28/04/2026 | 28/04/2026      |                    |
 
 ### Kết quả đạt được:
 

@@ -1,6 +1,6 @@
 ---
 title: "Week 7 Worklog"
-date: 2024-01-01
+date: 2026-20-04
 weight: 1
 chapter: false
 pre: " <b> 1.7. </b> "
@@ -15,8 +15,8 @@ pre: " <b> 1.7. </b> "
 ### Công việc thực hiện trong tuần:
 | Day | Task                                                                                         | Start Date | Completion Date | Reference Material |
 | --- | -------------------------------------------------------------------------------------------- | ---------- | --------------- | ------------------ |
-| 2   | - Tích hợp module đăng ký ứng dụng vào project nhóm                                           | 2026-02-20 | 2026-02-20      |                    |
-| 5   | - Chạy demo project nhóm <br> - Quan sát hoạt động hệ thống và tìm hiểu luồng xử lý tổng thể | 2026-02-23 | 2026-02-23      |                    |
+| 2   | - Tích hợp module đăng ký ứng dụng vào project nhóm                                           | 20/04/2026 | 20/042026      |                    |
+| 5   | - Chạy demo project nhóm <br> - Quan sát hoạt động hệ thống và tìm hiểu luồng xử lý tổng thể | 23/23/04/2026 | 23/04/2026      |                    |
 
 ### Kết quả đạt được:
 

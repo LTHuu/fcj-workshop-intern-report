@@ -1,6 +1,6 @@
 ---
 title: "Week 6 Worklog"
-date: 2024-01-01
+date: 2026-13-04
 weight: 1
 chapter: false
 pre: " <b> 1.6. </b> "
@@ -15,8 +15,8 @@ pre: " <b> 1.6. </b> "
 ### Công việc thực hiện trong tuần:
 | Day | Task                                                                                                      | Start Date | Completion Date | Reference Material |
 | --- | --------------------------------------------------------------------------------------------------------- | ---------- | --------------- | ------------------ |
-| 2   | - Tiếp tục phát triển chức năng đăng ký ứng dụng <br> - Cải thiện logic backend                            | 2026-04-13 | 2026-04-14      |                    |
-| 5   | - Tìm hiểu và triển khai Cognito cho xác thực người dùng <br> - Tích hợp User Pool vào hệ thống            | 2026-04-16 | 2026-04-16      |                    |
+| 2   | - Tiếp tục phát triển chức năng đăng ký ứng dụng <br> - Cải thiện logic backend                            | 13/04/2026 | 14/04/2026      |                    |
+| 5   | - Tìm hiểu và triển khai Cognito cho xác thực người dùng <br> - Tích hợp User Pool vào hệ thống            | 16/04/2026 | 16/04/2026      |                    |
 
 ### Kết quả đạt được:
 
