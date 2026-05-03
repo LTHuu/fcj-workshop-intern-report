@@ -21,7 +21,7 @@ In a log monitoring system, real-time data processing plays a crucial role in ea
 
 ### Architecture Description
 
-In this architecture, SQS acts as a message queue that receives log data. When new messages arrive, the Lambda Processor is automatically triggered to process the data. The processed data is then stored in DynamoDB and S3, while notifications are sent via SNS.
+In this architecture, SQS acts as a message queue that receives log data. The Lambda Processor observes and retrieves messages from the SQS for processing, after which the messages are deleted from the SQS. The processed data is then stored in DynamoDB and S3, while notifications are sent via SNS.
 
 ### Role of Lambda Processor
 

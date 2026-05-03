@@ -25,4 +25,4 @@ Processor, and SQS.*
 
 ### Description
 
-The system has been successfully configured with Lambda Shipper to receive logs from CloudWatch and forward them to SQS. Once messages are placed in SQS, the Lambda Processor is triggered to continue processing the data within the pipeline.
+The system has been successfully configured with Lambda Shipper to receive logs from CloudWatch and forward them to SQS. Once messages are placed in SQS, the Lambda Processor observes it and continue processing the data within the pipeline.

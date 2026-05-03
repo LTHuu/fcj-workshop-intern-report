@@ -23,4 +23,4 @@ Kiểm tra các thành phần trong luồng ingest log từ CloudWatch nhằm đ
 
 ### Mô tả
 
-Hệ thống đã thiết lập thành công Lambda Shipper để nhận log từ CloudWatch và chuyển tiếp đến SQS. Khi message được đưa vào SQS, Lambda Processor sẽ được kích hoạt để tiếp tục xử lý dữ liệu trong pipeline.
+Hệ thống đã thiết lập thành công Lambda Shipper để nhận log từ CloudWatch và chuyển tiếp đến SQS. Khi message được đưa vào SQS, Lambda Processor sẽ quan sát thấy và tiếp tục xử lý dữ liệu trong pipeline.

@@ -12,13 +12,9 @@ pre: "<b> 4.3.2 </b>"
 
 Validate the data processing flow from SQS to the Lambda Processor.
 
----
-
 ### Input Data
 
 Test data is simulated as log messages from SQS, including fields such as `appId`, `level`, `message`, and `timestamp`.
-
----
 
 ### Implementation Steps
 
@@ -33,15 +29,11 @@ Paste the JSON data into the Event JSON section.
 ![Add JSON](/images/4-Workshop/4.3--lambda-processor/4.3.2--processor-test/add-json1.png)  
 ![Add JSON](/images/4-Workshop/4.3--lambda-processor/4.3.2--processor-test/add-json2.png)  
 
----
-
-2. Execute the Lambda function to process the data.
+1. Execute the Lambda function to process the data.
 
 ![Lambda run](/images/4-Workshop/4.3--lambda-processor/4.3.2--processor-test/lambda-run.png)
 
----
-
-3. Verify the processing results
+1. Verify the processing results
 
 - Log data is stored in S3.  
   The S3 results confirm that the log data has been successfully stored after processing.
@@ -53,18 +45,15 @@ Paste the JSON data into the Event JSON section.
 
 ![Email result](/images/4-Workshop/4.3--lambda-processor/4.3.2--processor-test/email.png)  
 
----
-
 ### Workflow Description
 
 - Messages are sent to SQS  
-- Lambda Processor is triggered  
+- Lambda Processor retrieves the message, processes it, and deletes it in the sqs.
+- Notifications are sent if there is an error log.
 - Data is processed and:
   - Stored in S3  
   - Stored in DynamoDB  
   - Notifications are sent via SNS  
-
----
 
 ### Conclusion
 

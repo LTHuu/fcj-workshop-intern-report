@@ -20,7 +20,7 @@ Trong hệ thống giám sát log, việc xử lý dữ liệu theo thời gian 
 
 ## Mô tả kiến trúc
 
-Trong kiến trúc này, SQS đóng vai trò là hàng đợi trung gian tiếp nhận các message log. Khi có message mới, Lambda Processor sẽ được kích hoạt tự động để xử lý dữ liệu. Sau đó, dữ liệu được lưu trữ vào DynamoDB, S3 và đồng thời gửi thông báo thông qua SNS.
+Trong kiến trúc này, SQS đóng vai trò là hàng đợi trung gian tiếp nhận các message log. Lambda Processor sẽ quan sát, kéo tin nhắn từ SQS để xử lý rồi tin nhắn sẽ được xoá khỏi SQS. Sau đó, dữ liệu được lưu trữ vào DynamoDB, S3 và đồng thời gửi thông báo thông qua SNS.
 
 ## Vai trò của Lambda Processor
 

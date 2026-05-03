@@ -29,7 +29,7 @@ The queue `fcaj-v2-log-queue` has been successfully created and is ready for use
 
 ### Lambda Verification
 
-The Lambda function has been successfully deployed and configured to be triggered by SQS.
+Verify that the Lambda function has been deployed and connected to SQS to automatically observe messages.
 
 ![Lambda trigger](/images/4-Workshop/4.3--lambda-processor/4.3.1--resource-check/lambda.png) 
 
