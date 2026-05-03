@@ -6,24 +6,26 @@ chapter: false
 pre: " <b> 4. </b> "
 ---
 
-
-#  Hệ thống Quản Lý Log
+# Hệ thống Quản Lý Log
 
 #### Tổng quan
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+Trong bài thực hành này, chúng ta sẽ cùng nhau xây dựng một **Serverless Log Management & Analytics Pipeline**. Đây là một giải pháp hợp nhất giúp thu thập, xử lý và phân tích log tập trung cho nhiều ứng dụng chạy trên nền tảng AWS.
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
-
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+Hệ thống giải quyết vấn đề phân mảnh dữ liệu log trên nhiều máy chủ khác nhau, giúp chúng ta giám sát và khắc phục sự cố hiệu quả hơn. Luồng dữ liệu chính của chúng ta sẽ bao gồm:
+*   **Thu thập:** Sử dụng CloudWatch Agent để tập trung log từ các ứng dụng.
+*   **Điều phối:** Dùng Amazon SQS để đảm bảo việc tiếp nhận log ổn định và bất đồng bộ.
+*   **Xử lý:** AWS Lambda thực hiện phân loại log theo thời gian thực.
+*   **Lưu trữ:** Metadata được lưu tại **DynamoDB (Hot Data)** để truy vấn nhanh, trong khi raw log được lưu tại **Amazon S3 (Cold Data)** để lưu trữ dài hạn với chi phí tối ưu.
+*   **Phân tích & Cảnh báo:** Sử dụng Amazon Athena để truy vấn log lịch sử và Amazon SNS để gửi thông báo lỗi tức thì.
 
 #### Nội dung
 
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+1. [Chuẩn bị môi trường](4.1--preparation/)
+2. [Dịch vụ thông báo SNS](4.2--sns-verification/)
+3. [Luồng xử lý dữ liệu từ SQS](4.3--lambda-processor/)
+4. [Luồng thu thập Log tự động](4.4--log-ingestion/)
+5. [Vận hành App Đăng ký](4.5--registration-app/)
+6. [Giải pháp mở rộng nâng cao](4.6--advanced-concepts/)
+7. [Dọn dẹp tài nguyên](4.7--resource-cleanup/)
+
