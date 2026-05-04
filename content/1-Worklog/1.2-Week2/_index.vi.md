@@ -1,29 +1,24 @@
 ---
-
-title: "Week 2 Worklog"
+title: "Nhật ký công việc Tuần 2"
 date: 2026-17-03
 weight: 1
 chapter: false
 pre: " <b> 1.2. </b> "
-----------------------
+---
 
-### Objectives for Week 2:
+## Mục tiêu Tuần 2:
 
-* Get familiar with AWS account management and access control.
-* Understand the basics of AWS networking (VPC).
-* Learn how to monitor and control AWS costs.
+* Tiếp tục làm việc với VPC và EC2.
+* Thành thạo việc sử dụng AWS CLI.
 
-### Tasks Performed:
+### Các nhiệm vụ cần thực hiện trong tuần:
 
-| Date       | Tasks                                                                                                                                                                |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 17/03/2026 | - Watched provided learning videos <br> - Practiced: <br>  + Creating AWS account <br>  + Creating User Groups <br>  + Creating Admin User <br>  + Setting up Budget |
-| 19/03/2026 | - Watched lectures on AWS networking <br> - Completed lab exercises: <br>  + VPC <br>  + Subnet <br>  + Internet Gateway <br>  + Route Table                         |
+| Ngày | Nhiệm vụ | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| :--- | :--- | :--- | :--- | :--- |
+| Mon | - Cài đặt AWS CLI trên máy local <br> - Cấu hình profile AWS bằng lệnh aws configure | 16/03/2026 | 16/03/2026 | |
+| Thu | - Nghiên cứu cấu hình mạng AWS: <br>&emsp; + Subnet <br>&emsp; + Route table <br>&emsp; + Internet Gateway <br>&emsp; + NAT Gateway <br>&emsp; + VPC <br> - **Thực hành:** <br>&emsp; + Thiết lập môi trường VPC và các thành phần mạng <br>&emsp; + Viết script AWS CLI để triển khai VPC | 19/03/2026 | 19/03/2026 | [AWS Networking Video](https://www.youtube.com/watch?v=WD82W5pEfnY) |
 
-### Achievements:
+### Kết quả đạt được trong Tuần 2:
 
-* Successfully created an AWS account for project work.
-* Understood user management and access control using Users and User Groups.
-* Learned how to set up cost alerts to avoid unexpected charges.
-* Gained basic knowledge of AWS networking components (VPC, Subnet, Gateway, Route Table).
-* Understood how to connect to and work within the AWS environment.
+* Đã phát triển thành công các script để triển khai nhanh cụm VPC và các script tương ứng để dọn dẹp (xóa tài nguyên).
+* Đã triển khai thành công ứng dụng Node.js trên EC2 và host website tĩnh trên S3 bằng cả AWS Console và script tự động.
